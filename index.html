@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Muistilista</title>
+</head>
+<body>
+    <h1>Muistilista</h1>
+    
+    <!-- Lomake, johon lisättävät asiat kirjoitetaan. Tekstikentän alapuolella on lisäys- ja poistonapit. -->
+    <form name="toList">
+        Lisää tai poista: <input type = "text" name = "addToList" id = "addThis" placeholder="lisättävä tai poistettava"/><br/>
+        <input type="button" id = "sendData" value = "Lisää"/>
+        <input type="button" id = "removeData" value = "Poista"/>
+    </form>
+    <!-- Jätetään tilaa ohjeelle -->
+    <p id="ohje"></p>
+
+    <!-- Luodaan tyhjä taulukko lisättäviä asioita varten -->
+    <table id = "listaus"></table><br/>
+
+    <!-- Laskurit, jotka kertovat, kuinka monta asiaa listalla on, montako on tehty ja montako vielä auki -->
+    <p name="doneOrNot" id = "doneOrNot1"></p>
+    <p name="doneOrNot" id = "doneOrNot2"></p>
+    <p name="doneOrNot" id = "doneOrNot3"></p>
+
+    <script src="scripts.js" id="script"></script>
+</body>
+</html>

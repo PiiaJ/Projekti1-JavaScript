@@ -1,0 +1,26 @@
+/* tekstikentän, nappien, listan ja bodyn perustyylit ovat täällä */
+#addThis
+{
+    padding: 3px;
+    border-radius: 3px;
+}
+
+input[type=button]
+{
+    margin-right: 5px;
+    margin-top: 5px;
+    background-color: lightblue;
+}
+
+#listaus
+{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+body
+{
+    padding: 10px;
+}
+
+
