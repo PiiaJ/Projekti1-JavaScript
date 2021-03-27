@@ -89,7 +89,7 @@ function countListItems() {
     }
 }
 
-// funktio listalta poistamiseen, listan ensimmäinen samanniminen poistuu
+// funktio listalta poistamiseen, listan ensimmäinen samanniminen poistuu.
 function removeFromList() {
     // luetaan syöttöruudun sisältö
     var ruutu = document.getElementById('addThis').value; 
