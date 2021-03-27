@@ -89,7 +89,7 @@ function countListItems() {
     }
 }
 
-// funktio listalta poistamiseen, listan ensimmäinen samanniminen poistuu.
+// funktio listalta poistamiseen, listan ensimmäinen samanniminen poistuu
 function removeFromList() {
     // luetaan syöttöruudun sisältö
     var ruutu = document.getElementById('addThis').value; 
@@ -196,14 +196,19 @@ function loadStorage() {
     if (localStorage.listed && localStorage.getItem('listed') != "[]") {
         var storagesta = JSON.parse(localStorage.getItem('listed'));
             var taulukko = document.getElementById('listaus');
+            // tyhjään taulukkoon lisätään ensimmäinen rivi
             taulukko.insertRow(-1);
             var rivit = taulukko.getElementsByTagName('tr');
+            // käydään läpi localstoragessa oleva sisältö indekseittäin ja kopioidaan ne taulukon riveihin samassa järjestyksessä
             for (var i = 0; i < storagesta.length; i++) {
                 rivit[i].innerHTML = storagesta[i];
+                // jos localstoragessa on enemmän rivejä kuin taulukossa, taulukkoon lisätään uusi rivi
                 if(storagesta.length > rivit.length) {
                     taulukko.insertRow(-1);
                 }
-            } countListItems();
+            } 
+            // muokataan sivun ulkonäköä niin, että kaikki tarpeellinen näkyy
+            countListItems();
             taulukko.style = 'border: 3px solid gray';
             document.getElementById('ohje').innerHTML = '<i>Ruksi merkitsee muistettavan hoidetuksi.</i>';
     }
