@@ -151,6 +151,7 @@ function emptyTable() {
     for (var i = rivit.length-1; i >= 0; i--) {
         taulukko.deleteRow(i);
     }
+    // päivitetään localstorage
     storeItems();
 }
 
