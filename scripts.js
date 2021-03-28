@@ -35,8 +35,8 @@ function sendToList() {
     // lisätään soluihin arvot ja kuuntelija. Taulukkoon ja syöttöruutuun reunat normaaleiksi
         solu.innerHTML = '<input type = "checkbox" onchange = "didIt(this.id)" name = "box" id = "box" visibility = "visible"/>';
         solu2.innerHTML = lisatty;
-        ruutu.style = 'border: 1px solid black';
-        taulukko.style = 'border: 3px solid gray';
+        ruutu.style = 'border: 2px solid lightblue';
+        taulukko.style = 'border: 3px solid cadetblue';
 
         // nimetään solun id uudelleen käyttäen hyväksi listan pituutta
         // vähennetään listan pituudesta yksi, jolloin id on sama kuin uuden sisällön indeksi
@@ -225,7 +225,7 @@ function loadStorage() {
             } 
             // muokataan sivun ulkonäköä niin, että kaikki tarpeellinen näkyy
             countListItems();
-            taulukko.style = 'border: 3px solid gray';
+            taulukko.style = 'border: 3px solid cadetblue';
             document.getElementById('ohje').innerHTML = '<i>Ruksi merkitsee muistettavan hoidetuksi.</i>';
     } else {
         // piilotetaan turhat elementit näkyvistä

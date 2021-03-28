@@ -1,8 +1,9 @@
-/* tekstikentän, nappien, listan ja bodyn perustyylit ovat täällä */
+ /* tekstikentän, nappien, listan ja bodyn perustyylit ovat täällä */
 #addThis
 {
     padding: 3px;
-    border-radius: 3px;
+    border-radius: 2px;
+    border-color: lightblue;
 }
 
 input[type=button]
@@ -10,6 +11,7 @@ input[type=button]
     margin-right: 5px;
     margin-top: 5px;
     background-color: lightblue;
+    border-radius: 3px;
 }
 
 #listaus
