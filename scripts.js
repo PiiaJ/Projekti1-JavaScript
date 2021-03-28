@@ -1,8 +1,9 @@
-// lisätään kuuntelija lähetys- ja poistonappeihin, tuotteiden lisäys, poisto ja localstoragen muokkaus
+// lisätään kuuntelija lähetys- ja poistonappeihin, tuotteiden lisäys, poisto, listan tyhjennys ja localstoragen muokkaus
 document.getElementById('sendData').addEventListener('click', sendToList);
 document.getElementById('sendData').addEventListener('click', storeItems);
 document.getElementById('removeData').addEventListener('click', removeFromList);
 document.getElementById('removeData').addEventListener('click', storeItems);
+document.getElementById('emptyData').addEventListener('click', emptyTable);
 document.getElementById('script').addEventListener('load', loadStorage);
 
 // funktio, joka lisää kirjoitetun asian listaan
@@ -43,6 +44,9 @@ function sendToList() {
         document.getElementById('box').id = pituus -1;
         // tyhjennetään syöttökenttä
         document.getElementById('addThis').value = '';
+        // poisto- ja tyhjennysnapit lisätään näkyviin
+        document.getElementById('removeData').style.display = "inline";
+        document.getElementById('emptyData').style.display = "inline";
         // lisätään käyttäjälle ohjeistus
         document.getElementById('ohje').innerHTML = '<i>Ruksi merkitsee muistettavan hoidetuksi.</i>'
     }
@@ -116,15 +120,10 @@ function removeFromList() {
                 // tyhjennetään syöttökenttä
                 document.getElementById('addThis').value = '';
     
-        
                 // kutsutaan funktiota, joka tarkistaa, onko taulukossa muistettavia asioita
                 // jos taulukko on tyhjä, ohje ja taulukon reunat eivät näy
                 if (onkoTaulukkoTyhja() == true) {
-                    taulukko.style.borderWidth = 0;
-                    document.getElementById('ohje').innerHTML = '';
-                    for (var i = rivit.length-1; i >= 0; i--) {
-                        taulukko.deleteRow(i);
-                    }
+                    emptyTable();
                 } 
             break;
             } 
@@ -136,6 +135,23 @@ function removeFromList() {
     } 
     // päivitetään tehtävämäärät
     countListItems();
+}
+
+// funktio tyhjentää listan ja poistaa turhat näkyvistä
+function emptyTable() {
+    var taulukko = document.getElementById('listaus');
+    var rivit = taulukko.getElementsByTagName('tr');
+    taulukko.style.borderWidth = 0;
+    document.getElementById('ohje').innerHTML = '';
+    document.getElementById('removeData').style.display = "none";
+    document.getElementById('emptyData').style.display = "none";
+    document.getElementById('doneOrNot1').style.display = "none";
+    document.getElementById('doneOrNot2').style.display = "none";
+    document.getElementById('doneOrNot3').style.display = "none";
+    for (var i = rivit.length-1; i >= 0; i--) {
+        taulukko.deleteRow(i);
+    }
+    storeItems();
 }
 
 // funktio tarkistaa onko taulukossa enää muistettavia asioita
@@ -211,5 +227,9 @@ function loadStorage() {
             countListItems();
             taulukko.style = 'border: 3px solid gray';
             document.getElementById('ohje').innerHTML = '<i>Ruksi merkitsee muistettavan hoidetuksi.</i>';
+    } else {
+        // piilotetaan turhat elementit näkyvistä
+        document.getElementById('removeData').style.display = "none";
+        document.getElementById('emptyData').style.display = "none";
     }
 }
